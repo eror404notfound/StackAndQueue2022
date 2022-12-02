@@ -16,6 +16,10 @@ namespace StackQueue2022
             QueueOperation.Enqueue(30);
             QueueOperation.Enqueue(70);
             QueueOperation.Display();
+            QueueOperation.Dequeue(56);
+            QueueOperation.Dequeue(30);
+            QueueOperation.Dequeue(70);
+            QueueOperation.Display();
             Console.ReadLine();
         }
     }
