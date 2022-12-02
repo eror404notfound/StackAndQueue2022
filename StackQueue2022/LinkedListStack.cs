@@ -14,7 +14,7 @@ namespace StackQueue2022
         {
             this.top = null;
         }
-        internal void Push (int value)
+        internal void Push(int value)
         {
             Node node = new Node(value);
             if (this.top == null)
@@ -27,11 +27,43 @@ namespace StackQueue2022
         public void Display()
         {
             Node temp = this.top;
-            while(temp != null)
+            while (temp != null)
             {
-                Console.WriteLine(temp.data + " ");
-                    temp = temp.next;
+                Console.WriteLine(temp.data + "\n");
+                temp = temp.next;
             }
+        }
+        internal void Peak()
+        {
+            if (this.top == null)
+            {
+                Console.WriteLine("List is empty");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Top element is" +this.top.data);
+            }
+        }
+        internal void Pop()
+        {
+            if (this.top == null)
+            {
+                Console.WriteLine("stack is empty deletion is not possible");
+                return;
+
+            }
+
+            Console.WriteLine("value is popped" + this.top.data);
+            this.top = this.top.next;
+        }
+        internal void IsEmpty()
+        {
+            while (this.top != null)
+            {
+                Pop();
+            }
+            Console.WriteLine(this.top + "No element to pop");
         }
     }
 }

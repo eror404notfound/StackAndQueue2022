@@ -11,11 +11,15 @@ namespace StackQueue2022
         static void Main()
         {
             Console.WriteLine("Enter the stack element");
-            LinkedListStack stacklist = new LinkedListStack();
-            stacklist.Push(70);
-            stacklist.Push(30);
-            stacklist.Push(56);
-            stacklist.Display();
+            LinkedListStack StackOperation = new LinkedListStack();
+            StackOperation.Push(70);
+            StackOperation.Push(30);
+            StackOperation.Push(56);
+            StackOperation.Display();
+            StackOperation.Peak();
+            StackOperation.Pop();
+            StackOperation.IsEmpty();
+            StackOperation.Display();
             Console.ReadLine();
         }
     }
