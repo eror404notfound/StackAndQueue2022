@@ -6,64 +6,37 @@ using System.Threading.Tasks;
 
 namespace StackQueue2022
 {
-    internal class LinkedListStack
+    internal class LinkedListQueue
     {
-        private Node top;
-
-        public LinkedListStack()
+        Node head = null;
+        internal void Enqueue(int data)
         {
-            this.top = null;
-        }
-        internal void Push(int value)
-        {
-            Node node = new Node(value);
-            if (this.top == null)
-                node.next = null;
+            Node newNode = new Node(data);
+            if (head == null)
+            {
+                head = newNode;
+            }
             else
-                node.next = this.top;
-            this.top = node;
-            Console.WriteLine("{0} pushed in the stack value", value);
+            {
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = newNode;
+            }
+            Console.WriteLine("{0} inserted into Queue ", newNode.data);
         }
-        public void Display()
+        internal void Display()
         {
-            Node temp = this.top;
+            Node temp = head;
+            if (temp == null)
+                Console.WriteLine("Queue is empty");
             while (temp != null)
             {
-                Console.WriteLine(temp.data + "\n");
+                Console.Write(temp.data + " ");
                 temp = temp.next;
             }
-        }
-        internal void Peak()
-        {
-            if (this.top == null)
-            {
-                Console.WriteLine("List is empty");
-                return;
-            }
-            else
-            {
-                Console.WriteLine("Top element is" +this.top.data);
-            }
-        }
-        internal void Pop()
-        {
-            if (this.top == null)
-            {
-                Console.WriteLine("stack is empty deletion is not possible");
-                return;
-
-            }
-
-            Console.WriteLine("value is popped" + this.top.data);
-            this.top = this.top.next;
-        }
-        internal void IsEmpty()
-        {
-            while (this.top != null)
-            {
-                Pop();
-            }
-            Console.WriteLine(this.top + "No element to pop");
         }
     }
 }
